@@ -21,16 +21,24 @@ from django.urls import path
 from todos.views import home  #,todoListar
 from todos.views import todoListarView  #Class Based Views
 from todos.views import todoCriarView
+from todos.views import todoAtualizarView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path("", home),
     # path("", todoListar),
+    
     path("", 
          todoListarView.as_view(template_name="todos/todolistar.html"), 
          name='todo_listar'),
+    
     path("criar", 
          todoCriarView.as_view(), 
-         name='todo_criar')
+         name='todo_criar'),
+
+# pk é o parametro da tarefa que será atualizada
+    path("atualizar/<int:pk>", 
+         todoAtualizarView.as_view(), 
+         name='todo_atualizar')
 ]
