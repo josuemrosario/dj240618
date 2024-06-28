@@ -24,6 +24,7 @@ from todos.views import home  #,todoListar
 from todos.views import todoListarView  #Class Based Views
 from todos.views import todoCriarView
 from todos.views import todoAtualizarView
+from todos.views import todoDeletarView
 
 
 urlpatterns = [
@@ -47,4 +48,9 @@ urlpatterns = [
 # url de debug do django debug toolbars
     path("__debug__/", include("debug_toolbar.urls")),
 
+
+# rota para exclusão
+    path("excluir/<int:pk>", 
+         todoDeletarView.as_view(), 
+         name='todo_excluir'),
 ]

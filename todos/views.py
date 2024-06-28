@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import ToDo
@@ -45,3 +45,7 @@ class todoAtualizarView(UpdateView):
         context = super().get_context_data(**kwargs)
         context['titulo_pagina'] = 'Atualizar Tarefa'
         return context
+    
+class todoDeletarView(DeleteView):
+    model = ToDo
+

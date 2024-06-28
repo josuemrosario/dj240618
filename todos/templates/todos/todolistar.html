@@ -31,8 +31,9 @@
           {% comment %}botoes de acoes{% endcomment %}
           <td>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-warning">Editar</button>
-              <button type="button" class="btn btn-danger">Excluir</button>
+              <button type="button" onclick="window.location.href='{% url 'todo_atualizar' pk=tarefa.pk %}'" class="btn btn-warning">Editar</button>
+
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDeletar">Excluir</button>
             </div>
           </td>
         </tr>
