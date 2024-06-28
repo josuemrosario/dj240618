@@ -31,7 +31,17 @@ class todoCriarView(CreateView):
     fields = ["titulo","dtFinalizacao"]  # Uma lista de campos que o usuario pode alterar
     success_url = reverse_lazy('todo_listar')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Criar Tarefa'
+        return context
+
 class todoAtualizarView(UpdateView):
     model = ToDo
     fields = ["titulo","dtFinalizacao"]  # Uma lista de campos que o usuario pode alterar
     success_url = reverse_lazy('todo_listar')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Atualizar Tarefa'
+        return context

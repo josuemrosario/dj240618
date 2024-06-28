@@ -18,6 +18,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.urls import include, path
+
 from todos.views import home  #,todoListar
 from todos.views import todoListarView  #Class Based Views
 from todos.views import todoCriarView
@@ -40,5 +42,9 @@ urlpatterns = [
 # pk é o parametro da tarefa que será atualizada
     path("atualizar/<int:pk>", 
          todoAtualizarView.as_view(), 
-         name='todo_atualizar')
+         name='todo_atualizar'),
+
+# url de debug do django debug toolbars
+    path("__debug__/", include("debug_toolbar.urls")),
+
 ]

@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block titulo %}
-  Adicionar Nova Tarefa
+  {{ titulo_pagina }}
 {% endblock %}
 
 {% comment %}o sistema de template do django não permite usar o mesmo bloco duas vezes{% endcomment %}
 {% block subtitulo %}
-  Adicionar Nova Tarefa
+  {{ titulo_pagina }}
 {% endblock %}
 
 {% block conteudo %}
